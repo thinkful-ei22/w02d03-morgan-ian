@@ -4,8 +4,8 @@
 $(document).ready(function() {
   shoppingList.bindEventListeners();
   shoppingList.render();
-  api.getItems((items) => {
-    items.forEach( (item) => store.addItem(item) );
+  api.getItems((responseItems) => {
+    responseItems.forEach( (responseItem) => store.addItem(responseItem) );
     shoppingList.render();
   });
 });
@@ -14,5 +14,13 @@ $(document).ready(function() {
 // api.createItem('pears', () => {
 //   api.getItems((items) => {
 //     console.log(items);   //
+//   });
+// });
+
+// api.getItems((items) => {
+//   const item = items[0];
+
+//   api.updateItem(item.id, { name: 'foobar' }, () => {
+//     console.log('updated!');
 //   });
 // });
